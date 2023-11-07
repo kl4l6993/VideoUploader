@@ -107,7 +107,7 @@ function Add({update}) {
 
         <div>
             <div style={{display:'flex',justifyContent:'center'}}>
-                <i onClick={handleShow} className="fa-solid fa-square-plus fa-beat-fade" style={{ color: 'black', fontSize: '50px' }}></i>
+                <i onClick={handleShow} className="fa-solid fa-square-plus fa-beat-fade" style={{ color: 'black', fontSize: '55px' }}></i>
 
             </div>
 
@@ -129,7 +129,7 @@ function Add({update}) {
                                 autoFocus
                             />
                         </Form.Group>
-                        <Form.Group className="mb-4" controlId="exampleForm.ControlInput1">
+                        <Form.Group className="mb-4" controlId="exampleForm.ControlInput2">
                             <Form.Label>Video Cover Image URL</Form.Label>
                             <Form.Control
                                 onChange={(e)=>setValues(e)}
@@ -140,7 +140,7 @@ function Add({update}) {
                             />
                         </Form.Group>
 
-                        <Form.Group className="mb-4" controlId="exampleForm.ControlInput1">
+                        <Form.Group className="mb-4" controlId="exampleForm.ControlInput3">
                             <Form.Label>Youtube Video URL</Form.Label>
                             <Form.Control
                                 onChange={(e)=>extractUrl(e)}

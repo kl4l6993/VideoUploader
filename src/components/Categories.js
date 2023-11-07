@@ -6,8 +6,10 @@ import Modal from 'react-bootstrap/Modal';
 import uniqid from 'uniqid';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { addCategory, delCategory, getAllCat } from '../services/allapis';
-import { Trash2 } from 'react-feather';
+import { addCategory, delCategory,getAllCat, getsingleVideo, updateCategory } from '../services/allapis';
+import { Trash2, Trash } from 'react-feather';
+import Accordion from 'react-bootstrap/Accordion';
+import { Link, useNavigate } from 'react-router-dom';
 
 
 function Categories() {
@@ -31,6 +33,7 @@ function Categories() {
     //creating state for getting all categories
 
     const [categories, setCategories] = useState([])
+    
 
     const addData = async () => {
         let id = uniqid()
@@ -70,7 +73,7 @@ function Categories() {
                     theme: "light",
                 });
 
-                
+
 
             }
         }
@@ -79,7 +82,7 @@ function Categories() {
 
     //Getting all categories
 
-    const getAllCategories = async () => {
+   const getAllCategories = async () => {
 
         const result = await getAllCat()
 
@@ -90,18 +93,17 @@ function Categories() {
 
     //Delete Category
 
-    const deleteCat = async(id)=>{
-        
-      const result=  await delCategory(id);
+    const deleteCat = async (id) => {
 
-      if(result.status>=200 && result.status<300)
-        {
+        const result = await delCategory(id);
+
+        if (result.status >= 200 && result.status < 300) {
             //this is to refresh front end after deletion of category
             getAllCategories()
         }
 
     }
-    
+
 
     useEffect(() => {
 
@@ -109,9 +111,39 @@ function Categories() {
 
     }, [])
 
+    const dragOver = (e) => {
+        //since this event is working continuously and to avoid refresh.
+        e.preventDefault()
+        console.log("dragged over the category...");
+    }
+
+    const dropped = async (e, id) => {
+        console.log("dropped..cat Id -" + id)
+        //video id access
+        const videoID = e.dataTransfer.getData("cardID")
 
 
-    return (
+        //API Call to get single dragged video details from backend
+        const { data } = await getsingleVideo(videoID)
+
+
+        //Selected or Dropped category from all categories
+
+        const selectedCategory = categories.find(i => i.id == id) //output of find is element ie here object
+
+        //pushed the data elements to array.
+        selectedCategory.videos.push(data)
+
+        //API Call to paste this in categories.
+
+        await updateCategory(id, selectedCategory);
+
+        
+        getAllCategories()
+    }
+
+
+        return (
         <div>
             <Button style={{ marginTop: '5px', width: '100%', borderRadius: '30px', height: '50px' }} variant="dark" onClick={handleShow}>
                 Add Category
@@ -123,7 +155,7 @@ function Categories() {
                 </Modal.Header>
                 <Modal.Body>
                     <Form>
-                        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
+                        <Form.Group className="mb-3" controlId="exampleForm.ControlInput4">
                             <Form.Label>Category Name</Form.Label>
                             <Form.Control
                                 type="text"
@@ -148,18 +180,44 @@ function Categories() {
             {
                 categories.length > 0 ? categories.map(cat => (
 
-                    <div style={{ border:'1px solid black'}} className='mt-4 p-2'>
 
-                        <h4 style={{color:'red',fontFamily:'Cinzel',fontSize:'20px',border:'1px solid red',textAlign:'center',alignItems:'center'}}>..{cat.name}..</h4>
-                    
-                        <div>
-                        {/* image */}
+                        <div droppable style={{border:'1px solid', borderRadius:'15px',backgroundColor:'lightgrey'}} className='mt-5 p-2' onDragOver={(e) => dragOver(e)} onDrop={(e) => dropped(e, cat?.id)}>
+    
+
+                                <Accordion defaultActiveKey="0">
+                                    <Accordion.Item eventKey="1">
+                                        <Accordion.Header style={{fontFamily:'Nosifer', textAlign: 'center'}}>{cat.name}</Accordion.Header>
+                                        
+                                        {
+                                            cat.videos.map(j => (
+                                        
+                                        <Accordion.Body>
+        
+                                            <div className='mt-2' style={{display:'flex', justifyContent:'center'}}>
+                                                <img src={j.cover_image} style={{width:'200px',height:'200px'}}></img>
+                                            </div>
+                                            
+                                            <div className='mt-2' style={{display:'flex', justifyContent:'center'}}>
+                                                <h4>{j.caption}</h4>
+                                            </div>
+                                            <hr/>
+        
+                                        </Accordion.Body>
+                                        ))
+        
+                                            }
+                                    </Accordion.Item>
+                                    </Accordion>
+
+                                   
+  
+                                <Trash2 style={{ marginLeft: '80%', marginBottom:'-10%'}} onClick={() => deleteCat(cat.id)} className='btn text-primary' size={50}></Trash2>
+                                <Link to={'/category'} state={{id: cat}}>
+                                    <Button variant="secondary" className='text-center border border-info' style={{marginLeft:'25%',marginTop:'-5%'}}>See Details</Button>         
+                                    </Link>
                         </div>
-
-                        <Trash2 style={{color: 'red',marginLeft:'92%',marginBottom:'0%'}} onClick={()=>deleteCat(cat.id)}></Trash2>
-
-                    </div>
-
+    
+                
 
                 )) : <h1>Loading..</h1>
             }

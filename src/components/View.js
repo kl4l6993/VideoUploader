@@ -12,13 +12,12 @@ const [allVideos,setallVideos]=useState([])
 //for Deleting videos creating state
 
 const [deleteUpdate,setdeleteUpdate] =useState({});
-
+  
 const accessAllVideos=async()=>{
   const result= await getAllVideos();
   if(result.status>=200 && result.status<300)
   {
     setallVideos(result.data)
-    console.log(result.data);
   }
 }
 

@@ -22,15 +22,15 @@ function Header() {
                     <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                     <Navbar.Collapse id="responsive-navbar-nav">
                         <Nav className="me-auto" defaultActiveKey="/home" as="ul">
-                            <Nav.Item as="li"><Nav.Link href="#features" className='ms-3 text-white'>HOME</Nav.Link></Nav.Item>
-                            <Nav.Item as="li"><Nav.Link href="#pricing" className='ms-3 text-white'>ABOUT</Nav.Link></Nav.Item>
-                            <Nav.Item as="li"><Nav.Link href="#pricing" className='ms-3 text-white'>SERVICES</Nav.Link></Nav.Item>
-                            <Nav.Item as="li"><Nav.Link href="#pricing" className='ms-3 text-white'>CONTACT</Nav.Link></Nav.Item>
+                            <Nav.Item as="li"><Nav.Link href='/' className='ms-3 text-white'>HOME</Nav.Link></Nav.Item>
+                            <Nav.Item as="li"><Nav.Link href="footer" className='ms-3 text-white'>ABOUT</Nav.Link></Nav.Item>
+                            <Nav.Item as="li"><Nav.Link href="footer" className='ms-3 text-white'>SERVICES</Nav.Link></Nav.Item>
+                            <Nav.Item as="li"><Nav.Link href="footer" className='ms-3 text-white'>CONTACT</Nav.Link></Nav.Item>
                         </Nav>
                         <Nav className='border-start ms-auto'>
-                            <Nav.Link href="#deets" className='ms-2' ><i className="fa-brands fa-facebook fa-shake fa-xl text-info"></i></Nav.Link>
-                            <Nav.Link href="#deets" className='ms-2'><i className="fa-brands fa-youtube fa-xl text-primary"></i></Nav.Link>
-                            <Nav.Link eventKey={2} href="#memes" className='ms-2'>
+                            <Nav.Link href="footer" className='ms-2' ><i className="fa-brands fa-facebook fa-shake fa-xl text-info"></i></Nav.Link>
+                            <Nav.Link href="footer" className='ms-2'><i className="fa-brands fa-youtube fa-xl text-primary"></i></Nav.Link>
+                            <Nav.Link eventKey={2} href="footer" className='ms-2'>
                             <i className="fa-brands fa-instagram fa-xl text-warning"></i>
                             </Nav.Link>
                         </Nav>

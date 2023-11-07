@@ -8,10 +8,10 @@ function Landingpage() {
     return (
 
 
-        <div className='ms-1 mt-4 p-5'>
+        <div className='ms-1 p-5'>
         <Container>
-                <Row className='m-3 p-1 mb-4'>
-                    <Col lg={6} md={6} sm={12}>
+                <Row className='m-3 p-1 mb-5'>
+                    <Col lg={6} md={6} sm={12} className='text-center'>
                         {/* <h2 className='mt-5 mb-5' style={{ fontFamily: 'Dancing Script', fontSize: '60px' }}><span style={{ color: 'red' }}>V</span>ideo <span style={{ color: 'red' }}>U</span>ploader</h2> */}
                         <h1 className='mt-5 mb-5' style={{ fontFamily: 'Nosifer,sans-serif', color: 'blue', fontSize: '44px' }}>A better way to upload video!</h1>
                         <p style={{ fontFamily: 'Kalam', fontSize: '18px' }}>Solve the hassle of video delivery by packing transcoding, storage, security, and video player into a powerful but straightforward package. Stream anywhere. Without buffering !!</p><br />
@@ -31,7 +31,7 @@ function Landingpage() {
             
             {/* CARDS SECTION */}
                 
-                <div style={{ backgroundColor: 'wheat',borderRadius:'10px'}}>
+                <div style={{ backgroundColor: 'wheat',borderRadius:'10px'}} className='mt-5'>
                 <h1 className='text-center' style={{ fontFamily: 'Creepster', fontSize: '70px',paddingTop:'35px'}}>FEATURES</h1>
                     <Container>
                     <Row className='mt-5' style={{display:'flex',justifyContent:'space-evenly'}}>

@@ -36,3 +36,45 @@ export const delCategory=async(id)=>{
     return await commonRequest('DELETE',`${baseUrl}/categories/${id}`,{})
 }
 
+
+//Watch History Section
+
+//API call to post all video details to backend
+
+export const addHistory=async(body)=>{
+     return await commonRequest('POST',`${baseUrl}/histories`,body)
+}
+
+//get All Watch History Details
+
+export const getAllHistory=async()=>{
+    return await commonRequest('GET',`${baseUrl}/histories`,{})
+}
+
+//Delete History.
+
+export const delHistory=async (id)=>{
+
+    return await commonRequest('DELETE',`${baseUrl}/histories/${id}`,{})
+}
+
+//Drag and Drop
+
+//Access single video thru id
+
+export const getsingleVideo=async (id)=>{
+    return await commonRequest('GET',`${baseUrl}/videos/${id}`,{})
+}
+
+//Update video details to Categories
+
+export const updateCategory=async (id,body)=>{
+    return await commonRequest('PUT',`${baseUrl}/categories/${id}`,body)
+}
+
+//Deletion of video from categories from DB.
+
+export const deletesvCat=async(id)=>
+{
+    await commonRequest('DELETE',`${baseUrl}/categories/${id}`)
+}
