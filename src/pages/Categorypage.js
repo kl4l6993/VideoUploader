@@ -55,7 +55,7 @@ function Categorypage() {
 
 
         <div className='m-5'>
-            <h1 className='mt-5 p-2 text-center' style={{ fontFamily: 'Agbalumo' }}>Selected Category: <span style={{ color: 'red' }}>{category.name}</span></h1>
+            <h1 className='mt-5 p-2 text-center' style={{ fontFamily: 'Agbalumo'}}>Selected Category: <span style={{ color: 'red' }}>{category.name}</span></h1>
 
             <Container>
                 <Row>

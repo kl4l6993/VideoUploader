@@ -41,7 +41,7 @@ function History() {
 
     return (
         <div className='ms-5 me-5 p-2'>
-            <h2 className='mt-5' style={{ fontFamily: 'Permanent Marker', textAlign: 'center', fontSize: '50px'}}><span style={{ color: 'red' }}>W</span>atch <span style={{ color: 'red' }}>H</span>istory</h2>
+            <h1 className='mt-5' style={{ fontFamily: 'Permanent Marker', textAlign: 'center'}}><span style={{ color: 'red' }}>W</span>atch <span style={{ color: 'red' }}>H</span>istory</h1>
         <Link to={'/home'} style={{textDecoration:'none'}}>
                 <div style={{display:'flex',justifyContent:'end',marginTop:'20px'}}><Button className='mt-4 btn btn-info' style={{borderRadius:'20px',width:'150px',height:'40px'}}><i className="fa-solid fa-backward"></i>  Go Back</Button></div>
     

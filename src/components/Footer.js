@@ -47,7 +47,7 @@ function Footer() {
     }
 
   return (
-    <div className='p-5 ms-5 me-5' id='footer'>
+    <div className='p-5 ms-5 me-5 text-center' id='footer'>
     <Container>
             <Row>
                 <hr />
@@ -87,7 +87,7 @@ function Footer() {
                     <Col lg={4} md={4} sm={12} xs={12}>
                         <b><span className='text-primary'>C</span>ontact <span className='text-primary'>U</span>s</b>
                         <div>
-                        <InputGroup className="mt-4 mb-3" style={{width:'90%',height:'5px'}}>
+                        <InputGroup className="mt-4 mb-3" style={{width:'100%',height:'5px'}}>
                         <InputGroup.Text id="basic-addon1">@</InputGroup.Text>
                         <Form.Control
                             onChange={(m)=>footerm(m)}
@@ -97,7 +97,7 @@ function Footer() {
                             name='name'
                         />
                         </InputGroup> <br />
-                        <Button variant="outline-info" onClick={enquiry} style={{width:'90%',height:'35px', fontSize:'smaller'}}>Send Enquiry</Button>
+                        <Button variant="outline-info" onClick={enquiry} style={{width:'100%',height:'35px', fontSize:'smaller'}}>Send Enquiry</Button>
                         </div>
                     </Col>
         

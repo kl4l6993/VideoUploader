@@ -94,7 +94,7 @@ function Videocard({video,deleteFunc}) {
                         <Modal.Title>{video.caption}</Modal.Title>
                     </Modal.Header>
                     <Modal.Body>
-                    <iframe width="469px" height="300px" src={video.video_url} title="SPADIKAM Official Trailer 4K | R Mohan | Mohanlal | Bhadran | Myth Production | Geometric Film House" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    <iframe width="100%" height="300px" src={video.video_url} title="SPADIKAM Official Trailer 4K | R Mohan | Mohanlal | Bhadran | Myth Production | Geometric Film House" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                     </Modal.Body>
                     <Modal.Footer>
                         <Button variant="secondary" onClick={handleClose}>
